@@ -85,6 +85,8 @@ body {
   border: 1px solid var(--primaryColor);
   transition: var(--mainTransition);
   cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
 }
 .banner-btn:hover {
   background: transparent;
