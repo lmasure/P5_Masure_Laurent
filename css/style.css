@@ -22,11 +22,11 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  height: 60px;
+  height: 90px;
   width: 100%;
   display: flex;
   align-items: center;
-  background: rgb(231, 226, 221);
+  background: var(--primaryColor);
   z-index: 1;
 }
 .navbar-center {
@@ -49,7 +49,7 @@ body {
   position: absolute;
   top: -8px;
   right: -8px;
-  background: var(--primaryColor);
+  background: var(--mainBlack);
   padding: 0 5px;
   border-radius: 30%;
   color: var(--mainWhite);
@@ -106,21 +106,29 @@ body {
   letter-spacing: var(--mainSpacing);
 }
 #products-center {
-  width: 90vw;
+  /* width: 70vw; */
   margin: 0 auto;
   max-width: 1170px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  
+  display: flex;
+  flex-direction: column;
+  /* grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-column-gap: 1.5rem;
-  grid-row-gap: 2rem;
+  grid-row-gap: 2rem; */
 }
 .img-container {
+  margin: auto;
+  width: 50vw;
+  min-width: 300px;
   position: relative;
   overflow: hidden;
-  border: solid 1px var(--primaryColor)
+  margin-bottom: 20px;
+  border: solid 2px var(--primaryColor);
+  border-radius: 10px;
+  box-shadow: -4px 6px 14px -5px rgba(0,0,0,0.75);
 }
 .product-btn {
-  position: absolute;
+  /* position: absolute; */
   top: 50%;
   right: 0;
   background: var(--primaryColor);
@@ -129,8 +137,8 @@ body {
   padding: 0.5rem 0.75rem;
   letter-spacing: var(--mainSpacing);
   font-weight: bold;
-  transition: var(--mainTransition);
-  transform: translateX(101%);
+  /* transition: var(--mainTransition);
+  transform: translateX(101%); */
   cursor: pointer;
 }
 .product-btn:hover {
@@ -140,7 +148,7 @@ body {
   margin-right: 0.5rem;
 }
 .img-container:hover .product-btn {
-  transform: translateX(0);
+  /* transform: translateX(0); */
 }
 .product-img {
   display: block;
