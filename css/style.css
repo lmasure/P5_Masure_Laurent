@@ -41,10 +41,11 @@ body {
 .nav-icon {
   font-size: 1.5rem;
 }
-.cart-btn {
+#cart-btn {
   position: relative;
   cursor: pointer;
 }
+
 .cart-items {
   position: absolute;
   top: -8px;
@@ -128,7 +129,6 @@ body {
   box-shadow: -4px 6px 14px -5px rgba(0,0,0,0.75);
 }
 .product-btn {
-  /* position: absolute; */
   top: 50%;
   right: 0;
   background: var(--primaryColor);
@@ -137,19 +137,43 @@ body {
   padding: 0.5rem 0.75rem;
   letter-spacing: var(--mainSpacing);
   font-weight: bold;
-  /* transition: var(--mainTransition);
-  transform: translateX(101%); */
   cursor: pointer;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--mainBlack);
+  font-size: 1.5em;
+  width: auto;
 }
 .product-btn:hover {
   color: var(--mainWhite);
 }
+
+#cart-btn {
+  top: 50%;
+  right: 0;
+  background: var(--primaryColor);
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--mainBlack);
+  font-size: 1.5em;
+  width: auto;
+}
+#cart-btn:hover {
+  color: var(--mainWhite);
+}
+
 .fa-shopping-cart {
   margin-right: 0.5rem;
 }
-.img-container:hover .product-btn {
-  /* transform: translateX(0); */
-}
+
 .product-img {
   display: block;
   width: 100%;
@@ -175,4 +199,25 @@ body {
   color: var(--primaryColor);
   text-align: center;
 }
+
+.product p {
+  text-align: center;
+  margin: 10px 150px;
+  font-size: 1.2em;
+
+}
 /* ---------------End of Products ---------------- */
+/*----------------Color Selector------------------ */
+ #teddies-select {
+  font-size: .9rem;
+    padding: 2px 5px;
+    margin: 10px auto;
+   display: block;
+   
+}
+
+#add-text{
+  color: red;
+  font-size: 2rem;
+  text-align: center;
+}
