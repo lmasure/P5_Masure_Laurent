@@ -8,7 +8,6 @@ async function getTeddies() {
   let response = await fetch(APIURL);
   if(response.ok) {
     let data = await response.json();
-    console.log(data);
     let result = "";
       data.forEach(function(product) {
         result += `

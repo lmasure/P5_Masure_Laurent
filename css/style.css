@@ -8,6 +8,7 @@
   --mainSpacing: 0.1rem;
   --mainTransition: all 0.3s linear;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -230,3 +231,21 @@ a:link
   font-size: 2rem;
   text-align: center;
 }
+
+/* -----------------table rules-------------------- */
+
+table {
+ border-width:2px; 
+ border-style:solid; 
+ border-color:black;
+ width:50%;
+ margin:auto;
+ border-collapse:collapse
+ }
+td { 
+ border-width:1px;
+ border-style:solid; 
+ border-color:black;
+ width:50%;
+ text-align: center;
+ }
