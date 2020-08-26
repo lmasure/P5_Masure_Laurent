@@ -1,6 +1,7 @@
 const userBasketJson = localStorage.getItem("userBasket");
 const userBasket = JSON.parse(userBasketJson);
 
+
 const checkBasket = function () {
   // Vérifier que le panier contient un/des produit(s)
   if (localStorage.length === 0) {
@@ -56,19 +57,103 @@ const totalFacture = function () {
   let totalSum = document.getElementById("total_sum");
 
   totalSum.innerHTML = `${totalFact} €`;
-  console.log(totalFact);
 };
 
 function removeProduct(i) {
-  // Recupérer le array
+    
   userBasket.splice(i, 1);
   localStorage.clear();
-  // Mettre à jour le localStorage avec le nouveau panier
-  localStorage.setItem("userBasket", JSON.stringify(userBasket));
-  // Réactualiser la page avec le nouveau montant du panier/ou panier vide
-  window.location.reload();
+ localStorage.setItem("userBasket", JSON.stringify(userBasket));
+   window.location.reload();
+}
+
+function checkInput() {
+  // Regex
+  let checkString = /^[A-Z]{1}[a-z]/;
+  let checkMail = /.+@.+\..+/;
+
+  // Inputs de l'utilisateur
+  let formNom = document.getElementById("formNom").value;
+  let formPrenom = document.getElementById("formPrenom").value;
+  let formMail = document.getElementById("formMail").value;
+  let formAdresse = document.getElementById("formAdresse").value;
+  let formVille = document.getElementById("formVille").value;
+
+  // Vérifier les inputs de l'utilisateur
+  if (checkString.test(formNom) == false) {
+    alert("Votre nom doit être renseigné");
+    return false;
+  } else if (checkString.test(formPrenom) == false) {
+    alert("Votre prénom doit être renseigné");
+    return false;
+  } else if (checkMail.test(formMail) == false) {
+    alert("Votre email doit être au format xxx@yyy.zzz");
+    return false;
+  } else if (formAdresse == false) {
+    alert(
+      "Votre adresse contient un ou plusieurs caractères interdits ou n'est pas renseignée."
+    );
+    return false;
+  } else if (formVille == false) {
+    alert(
+      "Vous devez renseigner le nom de votre ville"
+    );
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function validOrder() {
+  let btnForm = document.getElementById("sendPost");
+  // Au clic sur le bouton d'envoi vérification checkInput()
+  btnForm.addEventListener("click", function (event) {
+    event.preventDefault();
+    // Verification de la conformité du formulaire avant envoi
+    if (checkInput() == true) {
+
+      
+
+      // Objet contact avec le contenu du formulaire
+      let contact = {
+        prenom: document.getElementById("formNom").value,
+        nom: document.getElementById("formPrenom").value,
+        email: document.getElementById("formMail").value,
+        adresse: document.getElementById("formAdresse").value,
+        ville: document.getElementById("formVille").value,
+      };
+      //  Objet products avec le contenu du panier
+      let products = userBasket;
+      // Création de l'objet à envoyer à l'API
+      let objet = {
+        contact,
+        products,
+      };
+    // Enregistrement de l'objet order dans le localstorage  
+    localStorage.setItem("order", JSON.stringify(objet));
+    // Fonction pour envoyer l'objet 
+// recuperation order localstorage
+  let storageOrder = objet;
+  // console.log(storageOrder);
+  fetch('http://localhost:3000/api/order/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: storageOrder
+  }).then(res => {
+    return res.json()
+  }).then(data => console.log(data));
+   
+    
+    //suppression de la clé du panier dans le localstorage
+    // localStorage.removeItem('userBasket');
+    // window.location.href = "thankyou.html";
+    }
+  });
 }
 
 checkBasket();
 ligneProduit();
 totalFacture();
+validOrder();
