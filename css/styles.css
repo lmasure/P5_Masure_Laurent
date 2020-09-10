@@ -8922,6 +8922,14 @@ h3 {
     font-size: 1.5rem;
   }
 }
+
+@media (max-width: 768px) {
+  .masthead .masthead-avatar {
+    width: auto;
+  }
+
+}
+
 .portfolio .portfolio-item {
   cursor: pointer;
   position: relative;

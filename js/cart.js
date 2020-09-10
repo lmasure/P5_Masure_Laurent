@@ -24,7 +24,7 @@ const ligneProduit = function () {
     colonnePrixUnitaire.setAttribute("id", "prixUnitProduit");
     quantProduit.setAttribute("id", "nbProduit");
     totalProduit.setAttribute("id", "totalUnitaire");
-    suppProduit.setAttribute("class", "fas fa-trash-alt");
+    suppProduit.setAttribute("class", "fas fa-trash-alt removeProduct");
     suppProduit.setAttribute("id", "removeProduct");
     // Remplir le contenu des balises
     const nomProduit = document.getElementById("nomProduit");
