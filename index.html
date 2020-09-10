@@ -1,48 +1,179 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://kit.fontawesome.com/92d591af2e.js" crossorigin="anonymous"></script>
-  <title>Orinoco | Ours en peluche</title>
-  <meta name="description" content="Ours en peluche de qualité, pour petits et grands." />
-</head>
-<body>
-  <!-- navbar -->
-  <nav class="navbar">
-    <div class="navbar-center">
-      <span class="nav-icon">
-        <i class="fas fa-bars"></i>
-      </span>
-      <a href=index.html><img src="images/orinoco.svg" alt="orinoco logo"/></a>
-      <div class="cart-btn">
-        <span class="nav-icon">
-          <a href="cart.html">
-            <i class="fas fa-cart-plus"></i>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Orinoco - Vente d'ours en peluche" />
+    <meta name="author" content="Laurent Masure" />
+    <title>Orinoco - Vente d'ours en peluche</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body id="page-top">
+    <!-- Navigation-->
+    <nav
+      class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html">Orinoco</a>
+        <button
+          class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <!-- <a
+                class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                href="cart.html"
+                >Panier</a
+              > -->
+              <div class="cart-btn nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">
+          <span class="nav-icon">
+            <a href="cart.html">
+            <i class="fas fa-cart-plus fa-2x"></i>
             </a>
-        </span>
-        <div class="cart-items">0</div>
+          </span>
+          <div class="cart-items">0</div>
+        </div>
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img
+          class="masthead-avatar mb-5"
+          src="images/Teddy_Bear.svg"
+          alt=""
+        />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">Orinoco</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+          <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">
+          Vente d'oursons en peluche
+        </p>
+      </div>
+    </header>
+    <!-- Portfolio Section-->
+    <section class="page-section portfolio" id="portfolio">
+      <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2
+          class="page-section-heading text-center text-uppercase text-secondary mb-0"
+        >
+          Nos Articles
+        </h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+          <div class="divider-custom-line"></div>
+        </div>
+        <!-- Portfolio Grid Items-->
+        <div class="row" id="products-center"></div>
+      </div>
+    </section>
+
+    
+    <!-- Footer-->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <!-- Footer Location-->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Adresse</h4>
+            <p class="lead mb-0">
+              Oniroco
+              <br />
+              48b rue de Ferland
+              <br />
+              77133 FERICY, FRANCE
+            </p>
+          </div>
+          <!-- Footer Social Icons-->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Suivez Nous</h4>
+            <a class="btn btn-outline-light btn-social mx-1" href="#!"
+              ><i class="fab fa-fw fa-facebook-f"></i
+            ></a>
+            <a class="btn btn-outline-light btn-social mx-1" href="#!"
+              ><i class="fab fa-fw fa-twitter"></i
+            ></a>
+            <a class="btn btn-outline-light btn-social mx-1" href="#!"
+              ><i class="fab fa-fw fa-linkedin-in"></i
+            ></a>
+            <a class="btn btn-outline-light btn-social mx-1" href="#!"
+              ><i class="fab fa-fw fa-dribbble"></i
+            ></a>
+          </div>
+          <!-- Footer About Text-->
+          <div class="col-lg-4">
+            <h4 class="text-uppercase mb-4">A propos de nous</h4>
+            <p class="lead mb-0">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda non id ducimus, minus voluptatum ut maiores doloribus impedit praesentium adipisci, vitae, modi ab?
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+    <div class="scroll-to-top d-lg-none position-fixed">
+      <a
+        class="js-scroll-trigger d-block text-center text-white rounded"
+        href="#page-top"
+        ><i class="fa fa-chevron-up"></i
+      ></a>
     </div>
-  </nav>
-  <!-- end of navbar -->
-  <!-- hero -->
-  <header class="hero">
-    <div class="banner">
-      <h1 class="banner-title">Notre collection d'Ours en Peluche</h1>
-      <a href="#products-center" class="banner-btn">Achetez maintenant</a>
-    </div>
-  </header>
-  <!-- end of hero -->
-  <!-- products -->
-  <section class="products">
-    <div class="section-title">
-      <h2>Nos produits</h2>
-    </div>
-    <div id="products-center">
-  </div>
-  </section>
-  <script src="main.js"></script>
-</body>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
