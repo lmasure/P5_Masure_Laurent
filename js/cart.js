@@ -24,7 +24,10 @@ const ligneProduit = function () {
     colonnePrixUnitaire.setAttribute("id", "prixUnitProduit");
     quantProduit.setAttribute("id", "nbProduit");
     totalProduit.setAttribute("id", "totalUnitaire");
-    suppProduit.setAttribute("class", "fas fa-trash-alt removeProduct");
+    suppProduit.setAttribute(
+      "class",
+      "fas fa-trash-alt removeProduct d-flex justify-content-center"
+    );
     suppProduit.setAttribute("id", "removeProduct");
     // Remplir le contenu des balises
     const nomProduit = document.getElementById("nomProduit");
@@ -60,7 +63,8 @@ const totalFacture = function () {
 
 function removeProduct(i) {
   userBasket.splice(i, 1);
-  localStorage.clear();
+  // localStorage.clear();
+  
   localStorage.setItem("userBasket", JSON.stringify(userBasket));
   window.location.reload();
 }
@@ -105,7 +109,6 @@ function validOrder() {
   // Au clic sur le bouton d'envoi vérification checkInput()
   btnForm.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log(btnForm);
     // Verification de la conformité du formulaire avant envoi
     if (checkInput() == true) {
       // Objet contact avec le contenu du formulaire
@@ -116,8 +119,8 @@ function validOrder() {
         address: document.getElementById("formAdresse").value,
         city: document.getElementById("formVille").value,
       };
-      //  Objet products avec le contenu du panier
-      let products = userBasket;
+      //  Objet products id avec le contenu du panier
+      let products = userBasket.map((produit) => produit.id);
       // Création de l'objet à envoyer à l'API
       let objet = {
         contact,
@@ -129,7 +132,7 @@ function validOrder() {
       // recuperation order localstorage
       let storageOrder = objet;
       // console.log(storageOrder);
-      fetch("http://localhost:3000/api/teddies/order", {
+      fetch("http://localhost:3000/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -143,7 +146,7 @@ function validOrder() {
 
       //suppression de la clé du panier dans le localstorage
       // localStorage.removeItem("userBasket");
-      window.location.href = "thankyou.html";
+      // window.location.href = "thankyou.html";
     }
   });
 }

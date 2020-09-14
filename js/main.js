@@ -21,7 +21,7 @@ async function getTeddies() {
                 </div>
               <img class="img-fluid" src=${
                 product.imageUrl
-              } alt="product" class="product-img">
+              } alt="product image" class="product-img">
         </a>
         <h3 class="card-title text-center">${product.name}</h3>
         <h4 class="card-title text-center">${Intl.NumberFormat("fr-FR", {

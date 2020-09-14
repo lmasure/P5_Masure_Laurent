@@ -32,7 +32,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: rgb(222, 243, 245);
 }
 
 
@@ -9045,8 +9045,19 @@ form .row:first-child .floating-label-form-group {
   padding: 0 5px;
   border-radius: 30%;
   color: white;
+  font-size: 1.2em;
 }
 .cart-btn {
   position: relative;
+  cursor: pointer;
+}
+
+#contactForm input{
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+
+#removeProduct{
   cursor: pointer;
 }
