@@ -9037,7 +9037,7 @@ form .row:first-child .floating-label-form-group {
   text-align: center;
 }
 
-.cart-items {
+#cart-items {
   position: absolute;
   top: 1px;
   right: 1px;
@@ -9061,3 +9061,13 @@ form .row:first-child .floating-label-form-group {
 #removeProduct{
   cursor: pointer;
 }
+
+#confirmation_commande{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#check_circle{
+  margin-top: 10px;
+  margin-bottom: 20px;
+} 

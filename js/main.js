@@ -38,4 +38,22 @@ async function getTeddies() {
     console.error("Erreur de connexion à l'API : ", response.status);
   }
 }
+
 getTeddies();
+
+// Affichage du nombre d'articles dans le header
+
+const cartCountElement =  document.getElementById('cart-items');
+
+let cartCount = 0;
+const cartJSON = localStorage.getItem("cart");
+const cart =  JSON.parse(cartJSON);
+
+
+cart.forEach((product) => {
+ 
+cartCount += product.number;
+
+});
+
+cartCountElement.innerText = cartCount;

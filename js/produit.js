@@ -5,6 +5,8 @@ const productId = urlParams.get("id");
 const APIURL = `http://localhost:3000/api/teddies/${productId}`;
 const productsDOM = document.querySelector("#products-center");
 
+
+
 class Product {
   constructor(id, name, description, imageUrl, price) {
     this.id = id;
@@ -34,8 +36,12 @@ async function getProductDetails() {
       <!-- single product -->
         <article class="product modal-body text-center">
           <div class="img-container">
-            <img src=${data.imageUrl} alt="product" class="img-fluid rounded mb-5">
-            <h3 class="portfolio-modal-title text-secondary text-uppercase">${data.name}</h3>
+            <img src=${
+              data.imageUrl
+            } alt="product" class="img-fluid rounded mb-5">
+            <h3 class="portfolio-modal-title text-secondary text-uppercase">${
+              data.name
+            }</h3>
             <p>${data.description}</p>
           <h4>${Intl.NumberFormat("fr-FR", {
             style: "currency",
@@ -53,8 +59,9 @@ async function getProductDetails() {
         <!-- end of single product -->`;
     productsDOM.innerHTML = result;
     //affichage dans la console pour tester si l'utilisateur est bien redirigé vers le bon produit
-    console.log( "Administration : Vous regardez la page du produit id_" + data._id);
-
+    console.log(
+      "Administration : Vous regardez la page du produit id_" + data._id
+    );
   } else {
     console.error("Erreur de connexion à l'API : ", response.status);
   }
@@ -71,7 +78,7 @@ async function getColors() {
         .appendChild(optionColor).innerHTML = color;
     });
   } else {
-  //test du choix de la couleur
+    //test du choix de la couleur
     console.error("Erreur de recupération de l'element : ", response.status);
   }
 }
@@ -80,11 +87,11 @@ function addProduct() {
   // Mettre le produit dans le panier au clic
   document.body.addEventListener("click", async function (event) {
     if (event.srcElement.id == "buy-btn") {
-      const productKey = "userBasket";
+      const productKey = "cart";
       let getItem = null;
       let products = [];
 
-      // Je fais une condition pour voir si dans le localSTorage il existe une clé "userBasket"
+      // Je fais une condition pour voir si dans le localSTorage il existe une clé "cart"
       if (localStorage.getItem(productKey)) {
         // Si oui, j'ajoute la valeur de cette clé dans "getItem"
         getItem = JSON.parse(localStorage.getItem(productKey));
@@ -107,6 +114,8 @@ function addProduct() {
         }
       }
 
+     
+
       // Puis l'action pour ajouter dans mon localstorage le tableau
       localStorage.setItem(productKey, JSON.stringify(products));
 
@@ -120,24 +129,9 @@ function addProduct() {
         document.getElementById("add-text").textContent = "";
       }
       window.setTimeout(add_done_remove, 2000);
-      
-
     }
   });
 }
-
-// function showQuant() {
-// //ajout du nombre de commande dans le header
-//   let cartItem = document.getElementsByClassName('cart-items');
-//   let quantite = 0;
-//   userBasket.forEach((produit) => {
-//     quantite += produit.number;
-//   });
-//   cartItem.innerHTML = quantite;
-//   console.log(quantite);
-// }
-
-
 
 //appel des fonctions
 getProductDetails();

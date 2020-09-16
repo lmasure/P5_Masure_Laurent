@@ -1,16 +1,16 @@
-const userBasketJson = localStorage.getItem("userBasket");
-const userBasket = JSON.parse(userBasketJson);
+const cartJson = localStorage.getItem("cart");
+const cart = JSON.parse(cartJson);
 
 const checkBasket = function () {
   // Vérifier que le panier contient un/des produit(s)
-  if (userBasketJson == null) {
+  if (cartJson == null) {
     alert("Votre panier est vide !");
     document.location.href = "http://127.0.0.1:5500/index.html";
   }
 };
 
 const ligneProduit = function () {
-  for (let i in userBasket) {
+  for (let i in cart) {
     const factureSection = document.getElementById("facture");
     const ligneTableau = factureSection.insertRow(1);
     const colonneNomProduit = ligneTableau.insertCell(0);
@@ -36,11 +36,11 @@ const ligneProduit = function () {
     const cellTotalU = document.getElementById("totalUnitaire");
     const removeProduit = document.getElementById("removeProduct");
     removeProduit.addEventListener("click", removeProduct.bind(i));
-    nomProduit.innerHTML = [userBasket[i].name];
-    prixUnitProduit.textContent = [userBasket[i].price] / 100 + " €";
-    nbProduit.textContent = [userBasket[i].number];
+    nomProduit.innerHTML = [cart[i].name];
+    prixUnitProduit.textContent = [cart[i].price] / 100 + " €";
+    nbProduit.textContent = [cart[i].number];
     cellTotalU.textContent =
-      ([userBasket[i].number] * [userBasket[i].price]) / 100 + " €";
+      ([cart[i].number] * [cart[i].price]) / 100 + " €";
   }
 };
 
@@ -49,7 +49,7 @@ const totalFacture = function () {
   let teddiesPrice = 0;
   let totalFact = 0;
   let totalQuant = document.getElementById("total_qut");
-  userBasket.forEach((produit) => {
+  cart.forEach((produit) => {
     quantTeddies += produit.number;
     teddiesPrice = produit.price / 100;
     totalFact += teddiesPrice * produit.number;
@@ -62,10 +62,10 @@ const totalFacture = function () {
 };
 
 function removeProduct(i) {
-  userBasket.splice(i, 1);
+  cart.splice(i, 1);
   // localStorage.clear();
-  
-  localStorage.setItem("userBasket", JSON.stringify(userBasket));
+
+  localStorage.setItem("cart", JSON.stringify(cart));
   window.location.reload();
 }
 
@@ -120,7 +120,8 @@ function validOrder() {
         city: document.getElementById("formVille").value,
       };
       //  Objet products id avec le contenu du panier
-      let products = userBasket.map((produit) => produit.id);
+      let products = cart.map((produit) => produit.id);
+
       // Création de l'objet à envoyer à l'API
       let objet = {
         contact,
@@ -128,28 +129,37 @@ function validOrder() {
       };
       // Enregistrement de l'objet order dans le localstorage
       localStorage.setItem("order", JSON.stringify(objet));
-      // Fonction pour envoyer l'objet
-      // recuperation order localstorage
-      let storageOrder = objet;
-      // console.log(storageOrder);
-      fetch("http://localhost:3000/order", {
+      
+      fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: storageOrder,
-      })
+        body: JSON.stringify(objet),
+       })
         .then((res) => {
           return res.json();
-        })
-        .then((data) => console.log(data));
+        });
 
       //suppression de la clé du panier dans le localstorage
-      // localStorage.removeItem("userBasket");
-      // window.location.href = "thankyou.html";
+      // localStorage.removeItem("cart");
+      window.location.href = "thankyou.html";
     }
   });
 }
+
+
+// Affichage du nombre d'articles dans le header
+
+const cartCountElement =  document.getElementById('cart-items');
+let cartCount = 0;
+cart.forEach((product) => {
+ console.log(product.number);
+cartCount += product.number;
+});
+cartCountElement.innerText = cartCount;
+
+
 
 checkBasket();
 ligneProduit();
