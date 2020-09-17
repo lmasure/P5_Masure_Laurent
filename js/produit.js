@@ -19,15 +19,17 @@ class Product {
 // AFFICHAGE DU NOMBRE D'ARTICLES DANS LE HEADER
 function showCartCount() {
   const cartCountElement = document.getElementById("cart-items");
-  let cartCount = 0;
   const cartJSON = localStorage.getItem("cart");
-  if ((cart = JSON.parse(cartJSON))) {
+  let cartCount = 0;
+  let cart = JSON.parse(cartJSON);
+  if (cart) {
     cart.forEach((product) => {
       cartCount += product.number;
     });
     cartCountElement.innerText = cartCount;
   }
 }
+
 
 let product;
 
