@@ -5,8 +5,6 @@ const productId = urlParams.get("id");
 const APIURL = `http://localhost:3000/api/teddies/${productId}`;
 const productsDOM = document.querySelector("#products-center");
 
-
-
 class Product {
   constructor(id, name, description, imageUrl, price) {
     this.id = id;
@@ -18,7 +16,20 @@ class Product {
   }
 }
 
-var product;
+// AFFICHAGE DU NOMBRE D'ARTICLES DANS LE HEADER
+function showCartCount() {
+  const cartCountElement = document.getElementById("cart-items");
+  let cartCount = 0;
+  const cartJSON = localStorage.getItem("cart");
+  if ((cart = JSON.parse(cartJSON))) {
+    cart.forEach((product) => {
+      cartCount += product.number;
+    });
+    cartCountElement.innerText = cartCount;
+  }
+}
+
+let product;
 
 //connexion à l'API et affichage du detail de l'article
 async function getProductDetails() {
@@ -84,17 +95,21 @@ async function getColors() {
 }
 
 function addProduct() {
+
+  
   // Mettre le produit dans le panier au clic
   document.body.addEventListener("click", async function (event) {
     if (event.srcElement.id == "buy-btn") {
       const productKey = "cart";
       let getItem = null;
       let products = [];
+        // cartCountElement.location.reload();
 
       // Je fais une condition pour voir si dans le localSTorage il existe une clé "cart"
       if (localStorage.getItem(productKey)) {
         // Si oui, j'ajoute la valeur de cette clé dans "getItem"
         getItem = JSON.parse(localStorage.getItem(productKey));
+        
       }
 
       // Si getItem est faux alors je push dans mon tableau vide le produit en question
@@ -114,10 +129,9 @@ function addProduct() {
         }
       }
 
-     
-
       // Puis l'action pour ajouter dans mon localstorage le tableau
       localStorage.setItem(productKey, JSON.stringify(products));
+      showCartCount();
 
       // Notifier l'utilisateur de l'ajout au panier
       setTimeout(function () {
@@ -134,6 +148,7 @@ function addProduct() {
 }
 
 //appel des fonctions
+      showCartCount();
 getProductDetails();
 getColors();
 addProduct();

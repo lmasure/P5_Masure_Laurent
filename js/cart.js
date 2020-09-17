@@ -139,26 +139,35 @@ function validOrder() {
        })
         .then((res) => {
           return res.json();
-        });
-
-      //suppression de la clé du panier dans le localstorage
+        })
+        .then((data) => {
+          console.log(data.orderId);
+          localStorage.setItem("orderId", data.orderId);
+//suppression de la clé du panier dans le localstorage
       // localStorage.removeItem("cart");
       window.location.href = "thankyou.html";
+        })
+        .catch((error) => console.error(error));
+
+      
     }
   });
 }
 
-
-// Affichage du nombre d'articles dans le header
-
-const cartCountElement =  document.getElementById('cart-items');
-let cartCount = 0;
-cart.forEach((product) => {
- console.log(product.number);
-cartCount += product.number;
-});
-cartCountElement.innerText = cartCount;
-
+// AFFICHAGE DU NOMBRE D'ARTICLES DANS LE HEADER
+function showCartCount() {
+  const cartCountElement = document.getElementById("cart-items");
+  const cartJSON = localStorage.getItem("cart");
+  let cartCount = 0;
+  let cart = JSON.parse(cartJSON);
+  if (cart) {
+    cart.forEach((product) => {
+      cartCount += product.number;
+    });
+    cartCountElement.innerText = cartCount;
+  }
+}
+showCartCount();
 
 
 checkBasket();
