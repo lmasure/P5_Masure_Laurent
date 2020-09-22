@@ -18,7 +18,6 @@ const ligneProduit = function () {
     const quantProduit = ligneTableau.insertCell(2);
     const totalProduit = ligneTableau.insertCell(3);
     const suppProduit = ligneTableau.insertCell(4);
-
     // Attribuer les classes
     colonneNomProduit.setAttribute("id", "nomProduit");
     colonnePrixUnitaire.setAttribute("id", "prixUnitProduit");
@@ -55,16 +54,12 @@ const totalFacture = function () {
     totalFact += teddiesPrice * produit.number;
   });
   totalQuant.innerHTML = quantTeddies;
-
   let totalSum = document.getElementById("total_sum");
-
   totalSum.innerHTML = `${totalFact} €`;
 };
 
 function removeProduct(i) {
   cart.splice(i, 1);
-  // localStorage.clear();
-
   localStorage.setItem("cart", JSON.stringify(cart));
   window.location.reload();
 }

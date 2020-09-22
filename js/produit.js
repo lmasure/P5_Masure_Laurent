@@ -30,7 +30,6 @@ function showCartCount() {
   }
 }
 
-
 let product;
 
 //connexion à l'API et affichage du detail de l'article
@@ -73,7 +72,7 @@ async function getProductDetails() {
     productsDOM.innerHTML = result;
     //affichage dans la console pour tester si l'utilisateur est bien redirigé vers le bon produit
     console.log(
-      "Administration : Vous regardez la page du produit id_" + data._id
+      "Vous êtes sur la page du produit id_" + data._id
     );
   } else {
     console.error("Erreur de connexion à l'API : ", response.status);
@@ -97,21 +96,18 @@ async function getColors() {
 }
 
 function addProduct() {
-
-  
   // Mettre le produit dans le panier au clic
   document.body.addEventListener("click", async function (event) {
     if (event.srcElement.id == "buy-btn") {
       const productKey = "cart";
       let getItem = null;
       let products = [];
-        // cartCountElement.location.reload();
+      // cartCountElement.location.reload();
 
       // Je fais une condition pour voir si dans le localSTorage il existe une clé "cart"
       if (localStorage.getItem(productKey)) {
         // Si oui, j'ajoute la valeur de cette clé dans "getItem"
         getItem = JSON.parse(localStorage.getItem(productKey));
-        
       }
 
       // Si getItem est faux alors je push dans mon tableau vide le produit en question
@@ -150,7 +146,7 @@ function addProduct() {
 }
 
 //appel des fonctions
-      showCartCount();
+showCartCount();
 getProductDetails();
 getColors();
 addProduct();

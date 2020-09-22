@@ -26,7 +26,6 @@ function resultOrder() {
       window.location = "./index.html";
     }, 2500);
   } else {
-    
     let resultCommand = document.getElementById("confirmation_commande");
     let resultCommandError = document.createElement("div");
     resultCommandError.setAttribute("id", "order_result_error");
@@ -43,8 +42,12 @@ function resultOrder() {
       window.location = "./index.html";
     }, 2500);
   }
-}
+};
 
-
+function checkLocalStorage() {
+  if (localStorage.getItem("order") == null) {
+    console.log("Le localStorage à bien été vidé")
+}};
 
 resultOrder();
+checkLocalStorage();

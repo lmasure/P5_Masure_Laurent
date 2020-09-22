@@ -41,19 +41,6 @@ async function getTeddies() {
 
 getTeddies();
 
-// Affichage du nombre d'articles dans le header
-
-// const cartCountElement =  document.getElementById('cart-items');
-
-// let cartCount = 0;
-// const cartJSON = localStorage.getItem("cart");
-// const cart =  JSON.parse(cartJSON);
-// cart.forEach((product) => {
-// cartCount += product.number;
-// });
-// cartCountElement.innerText = cartCount;
-
-
 // AFFICHAGE DU NOMBRE D'ARTICLES DANS LE HEADER
 function showCartCount() {
   const cartCountElement = document.getElementById("cart-items");
