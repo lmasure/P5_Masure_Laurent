@@ -138,8 +138,7 @@ function validOrder() {
         .then((data) => {
           console.log(data.orderId);
           localStorage.setItem("orderId", data.orderId);
-//suppression de la clé du panier dans le localstorage
-      // localStorage.removeItem("cart");
+    
       window.location.href = "thankyou.html";
         })
         .catch((error) => console.error(error));
@@ -163,8 +162,6 @@ function showCartCount() {
   }
 }
 showCartCount();
-
-
 checkBasket();
 ligneProduit();
 totalFacture();

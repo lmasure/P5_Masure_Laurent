@@ -71,9 +71,6 @@ async function getProductDetails() {
         <!-- end of single product -->`;
     productsDOM.innerHTML = result;
     //affichage dans la console pour tester si l'utilisateur est bien redirigé vers le bon produit
-    console.log(
-      "Vous êtes sur la page du produit id_" + data._id
-    );
   } else {
     console.error("Erreur de connexion à l'API : ", response.status);
   }

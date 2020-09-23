@@ -1,9 +1,6 @@
 const orderAPI = "http://localhost:3000/api/teddies/order";
 const order = JSON.parse(localStorage.getItem("order"));
 
-
-
-
 function resultOrder() {
 
   if (localStorage.getItem("order") != null) {
@@ -46,7 +43,7 @@ function resultOrder() {
 
 function checkLocalStorage() {
   if (localStorage.getItem("order") == null) {
-    console.log("Le localStorage à bien été vidé")
+    alert("Votre panier à bien été vidé")
 }};
 
 resultOrder();
