@@ -5,7 +5,7 @@ const checkBasket = function () {
   // Vérifier que le panier contient un/des produit(s)
   if (cartJson == null) {
     alert("Votre panier est vide !");
-    document.location.href = "http://127.0.0.1:5500/index.html";
+    document.location.href = "./index.html";
   }
 };
 
@@ -136,7 +136,6 @@ function validOrder() {
           return res.json();
         })
         .then((data) => {
-          console.log(data.orderId);
           localStorage.setItem("orderId", data.orderId);
     
       window.location.href = "thankyou.html";

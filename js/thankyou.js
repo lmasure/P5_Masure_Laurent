@@ -2,7 +2,6 @@ const orderAPI = "http://localhost:3000/api/teddies/order";
 const order = JSON.parse(localStorage.getItem("order"));
 
 function resultOrder() {
-
   if (localStorage.getItem("order") != null) {
     // Afficher un message de remerciement pour l'utilisateur
     let order = JSON.parse(localStorage.getItem("order"));
@@ -35,16 +34,21 @@ function resultOrder() {
     resultCommand.appendChild(resultCommandError);
     resultCommandError.appendChild(iconError);
     resultCommandError.appendChild(messageError);
-    setTimeout(function () {
-      window.location = "./index.html";
-    }, 2500);
   }
-};
+}
 
 function checkLocalStorage() {
   if (localStorage.getItem("order") == null) {
-    alert("Votre panier à bien été vidé")
-}};
+    setTimeout(function () {
+      window.location = "./index.html";
+    }, 4500);
+  } else {
+    alert("Erreur de commande, vous allez etre redirigé vers votre panier");
+    setTimeout(function () {
+      window.location = "./cart.html";
+    }, 4500);
+  }
+}
 
 resultOrder();
 checkLocalStorage();
