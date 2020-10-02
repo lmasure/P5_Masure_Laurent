@@ -94,8 +94,10 @@ function checkInput() {
         " ou n'est pas renseignée."
     );
     return false;
-  } else if (checkString.test(formVille) == false) {
-    alert("Vous devez renseigner le nom de votre ville");
+  } else if (checkAdresse.test(formVille) == false) {
+    alert(`Votre ville contient un ou plusieurs des caractères interdits suivants : ` +
+        '[^@&"()!_$*€£`%+=/;?#]' +
+        " ou n'est pas renseignée.");
     return false;
   } else {
     return true;
