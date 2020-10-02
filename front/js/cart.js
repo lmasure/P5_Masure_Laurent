@@ -3,7 +3,7 @@ const cart = JSON.parse(cartJson);
 
 const checkBasket = function () {
   // Vérifier que le panier contient un/des produit(s)
-  if (cartJson == null) {
+  if (cartJson === null) {
     alert("Votre panier est vide !");
     document.location.href = "./index.html";
   }
@@ -78,23 +78,23 @@ function checkInput() {
   let formVille = document.getElementById("formVille").value;
 
   // Vérifier les inputs de l'utilisateur
-  if (checkString.test(formNom) == false) {
+  if (checkString.test(formNom) === false) {
     alert("Votre nom doit être renseigné");
     return false;
-  } else if (checkString.test(formPrenom) == false) {
+  } else if (checkString.test(formPrenom) === false) {
     alert("Votre prénom doit être renseigné");
     return false;
-  } else if (checkMail.test(formMail) == false) {
+  } else if (checkMail.test(formMail) === false) {
     alert("Votre email doit être au format xxx@yyy.zzz");
     return false;
-  } else if (checkAdresse.test(formAdresse) == false) {
+  } else if (checkAdresse.test(formAdresse) === false) {
     alert(
       `Votre adresse contient un ou plusieurs des caractères interdits suivants : ` +
         '[^@&"()!_$*€£`%+=/;?#]' +
         " ou n'est pas renseignée."
     );
     return false;
-  } else if (checkAdresse.test(formVille) == false) {
+  } else if (checkAdresse.test(formVille) === false) {
     alert(`Votre ville contient un ou plusieurs des caractères interdits suivants : ` +
         '[^@&"()!_$*€£`%+=/;?#]' +
         " ou n'est pas renseignée.");
@@ -110,7 +110,7 @@ function validOrder() {
   btnForm.addEventListener("click", function (event) {
     event.preventDefault();
     // Verification de la conformité du formulaire avant envoi
-    if (checkInput() == true) {
+    if (checkInput() === true) {
       // Objet contact avec le contenu du formulaire
       let contact = {
         firstName: document.getElementById("formNom").value,
