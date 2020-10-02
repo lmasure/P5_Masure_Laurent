@@ -41,12 +41,12 @@ function checkLocalStorage() {
   if (localStorage.getItem("order") == null) {
     setTimeout(function () {
       window.location = "./index.html";
-    }, 4500);
+    }, 5500);
   } else {
     alert("Erreur de commande, vous allez etre redirigé vers votre panier");
     setTimeout(function () {
       window.location = "./cart.html";
-    }, 4500);
+    }, 5500);
   }
 }
 

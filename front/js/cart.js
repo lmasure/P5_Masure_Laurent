@@ -66,8 +66,9 @@ function removeProduct(i) {
 
 function checkInput() {
   // Regex
-  let checkString = /^[A-Z]{1}[a-z]/;
-  let checkMail = /.+@.+\..+/;
+  let checkString = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+  let checkMail = /[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})/;
+  let checkAdresse = /^[^@&"()!_$*€£`%+=\/;?#]+$/;
 
   // Inputs de l'utilisateur
   let formNom = document.getElementById("formNom").value;
@@ -86,12 +87,14 @@ function checkInput() {
   } else if (checkMail.test(formMail) == false) {
     alert("Votre email doit être au format xxx@yyy.zzz");
     return false;
-  } else if (formAdresse == false) {
+  } else if (checkAdresse.test(formAdresse) == false) {
     alert(
-      "Votre adresse contient un ou plusieurs caractères interdits ou n'est pas renseignée."
+      `Votre adresse contient un ou plusieurs des caractères interdits suivants : ` +
+        '[^@&"()!_$*€£`%+=/;?#]' +
+        " ou n'est pas renseignée."
     );
     return false;
-  } else if (formVille == false) {
+  } else if (checkString.test(formVille) == false) {
     alert("Vous devez renseigner le nom de votre ville");
     return false;
   } else {

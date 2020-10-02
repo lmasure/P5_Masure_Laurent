@@ -99,7 +99,6 @@ function addProduct() {
       const productKey = "cart";
       let getItem = null;
       let products = [];
-      // cartCountElement.location.reload();
 
       // Je fais une condition pour voir si dans le localSTorage il existe une clé "cart"
       if (localStorage.getItem(productKey)) {
@@ -116,7 +115,6 @@ function addProduct() {
         const foundProduct = products.find(function (produit) {
           return produit.id === product.id;
         });
-        // const foundProduct = products.find(element => element.id === product.id)
         if (foundProduct) {
           foundProduct.number += 1;
         } else {

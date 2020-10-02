@@ -9071,3 +9071,13 @@ form .row:first-child .floating-label-form-group {
   margin-top: 10px;
   margin-bottom: 20px;
 } 
+
+/* composition pour les champs invalides */
+input:invalid{
+  border-color: #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid {
+  outline: none;
+}
